@@ -1,20 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-export class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
+function LikeButton() {
+  const [liked, setLike] = useState(false);
+
+  console.log(LikeButton);
+
+  if (liked) {
+    return 'You liked this.';
   }
+  console.log(2);
 
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
+  const handleClick = () => setLike(true);
 
-    return React.createElement(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
-    );
-  }
+  console.log(3);
+
+  return (
+    <button onClick={handleClick}>Like</button>
+  );
 }
+
+export default LikeButton
